@@ -1,0 +1,18 @@
+<h1>Albums</h1>
+<ng-container *ngIf="items else loading">
+  <div class="row">
+    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12" *ngFor="let item of items | slice:0:3; let i = index">
+      <a routerLink="/album/{{item.albumId}}/{{i}}">
+        <div>{{item.title}}</div>
+        <div class="foto-container-{{i}}">
+          <img src="{{item.thumbnailUrl}}"/>
+        </div>
+      </a>
+    </div>
+  </div>
+</ng-container>
+<ng-template #loading>
+  <span class="spinner">
+    Loading...
+  </span>
+</ng-template>

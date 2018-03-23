@@ -1,0 +1,16 @@
+<h1>Photos</h1>
+<ng-container *ngIf="items else loading">
+  <div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" *ngFor="let item of items | slice:0:2">
+      <div>{{item.title}}</div>
+      <div class="foto-container-{{index}}">
+        <img src="{{item.url}}"/>
+      </div>
+    </div>
+  </div>
+</ng-container>
+<ng-template #loading>
+  <span class="spinner">
+    Loading...
+  </span>
+</ng-template>
